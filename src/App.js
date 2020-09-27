@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Blog from "./components/blog";
+import Post from "./components/Post";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Col, Container, Row } from "react-bootstrap";
+import { BrowserRouter as Router } from "react-router-dom";
+import PostDetails from "./components/PostDetails";
+import { Route, Switch, NavLink } from 'react-router-dom';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App" >
+            <Router>
+                <Container fluid>
+                    <Row className="justify-content-md-center">
+                        <Col>
+                    
+                             <Switch>
+                                <Route exact path="/posts/:id" component={Post} />
+                                <Route exact path="/post/:pid" component={PostDetails} />
+                                <Route exact path="/" component={Blog} />
+                            </Switch>
+                        </Col> 
+                    </Row>
+                </Container>
+            </Router> 
+            
+        </div>
+    );
 }
 
 export default App;

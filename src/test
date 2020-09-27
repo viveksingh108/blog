@@ -1,0 +1,14 @@
+ <Router>
+                <Container fluid>
+                    <Row className="justify-content-md-center">
+                        <Col>
+                             <Blog/> 
+                             <Switch>
+                                <Route path="/users/:id" component={Post} />
+                                <Route path="/posts/userId:id" component={PostDetails} />
+                                <Route path="/" component={Blog} />
+                            </Switch>
+                        </Col> 
+                    </Row>
+                </Container>
+            </Router> 
